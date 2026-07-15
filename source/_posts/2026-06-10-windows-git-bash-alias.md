@@ -1,14 +1,17 @@
 ---
 title: 在 Windows Git Bash 中設定別名（Alias），以 antigravity-ide 為例
 date: 2026-06-10
+updated: 2026-07-16
 tags:
   - Windows
   - Antigravity
+  - Git
 categories:
+cover: https://images.pexels.com/photos/35439980/pexels-photo-35439980/free-photo-of-assorted-fresh-fruits-in-containers-for-healthy-snack.jpeg
 ---
 
 每次要在終端機開啟 AI 編程助手或 IDE 時，總是要敲長長的指令嗎？
-本篇文章將手把手教你如何在 Windows 的 **Git Bash** 環境中，將長指令 `antigravity-ide .` 縮寫成超好記的 `agy .`，讓開發流程更流暢！
+本篇文章將手把手教你如何在 Windows 的 **Git Bash** 環境中，將長指令 `antigravity-ide .` 縮寫成超好記的 `agy-ide .`，讓開發流程更流暢！
 
 ## 為什麼要設定別名（Alias）？
 
@@ -40,9 +43,9 @@ vim ~/.bashrc
 1. 按下鍵盤上的 **`i`** 鍵，進入**輸入模式**（此時視窗左下方會出現 `-- INSERT --` 字樣）。
 2. 在檔案中貼上或輸入以下指令：
 
-```bash
-alias agy="antigravity-ide"
-```
+    ```bash
+    alias agy-ide="antigravity-ide"
+    ```
 
 3. 按下鍵盤左上角的 **`Esc`** 鍵，退出輸入模式。
 4. 輸入 **`:wq`**（代表儲存並離開），然後按下 **`Enter`** 鍵。
@@ -62,9 +65,12 @@ source ~/.bashrc
 現在，切換到你任何一個專案的資料夾目錄，然後輸入：
 
 ```bash
-agy .
+agy-ide .
 ```
 
 如果成功喚起 `antigravity-ide` 並載入當前目錄，就代表設定成功囉！
 
+## 補充
 
+* `.bashrc` 的實際資料夾路徑：在 Git Bash 中，`~` 代表的是 Windows 使用者資料夾，因此 `.bashrc` 檔案的實際路徑為 `C:\Users\使用者名稱\.bashrc`，也可以直接用檔案總管開啟該路徑，用一般文字編輯器（如記事本、VS Code）編輯。
+* 因為 `agy` 這個名稱已經被 `Antigravity CLI` 本身使用（保留給官方指令），所以不建議拿來當作我們自訂別名的名稱，才會用 `agy-ide` 來避免衝突。
